@@ -20,9 +20,29 @@ function create(product) {
     resolve(newProduct);
   });
 }
+function updateProduct(id, product){
+    return new Promise((resolve,reject)=> {
+        const index = products.findIndex((e)=> e.id===id)
+        products[index] = {id, ...product}
+        writeDataToFile('./data/product.json',products)
+        resolve(products[index])
+    })
+}
+
+function removeProduct(id){
+    return new Promise((resolve,reject)=> {
+        products = products.filter((cur,idx)=> {
+            cur !=id
+        })
+        writeDataToFile('../data/product.json',products)
+        resolve()
+    })
+}
 
 module.exports = {
   find,
   findById,
   create,
-};
+  updateProduct,
+  removeProduct,
+}
