@@ -1,4 +1,4 @@
-const products = require("../data/product.json");
+let products = require("../data/product.json");
 const { v4: uuidv4 } = require("uuid");
 const { writeDataToFile } = require("../utils");
 function find() {
@@ -31,10 +31,8 @@ function updateProduct(id, product){
 
 function removeProduct(id){
     return new Promise((resolve,reject)=> {
-        products = products.filter((cur,idx)=> {
-            cur !=id
-        })
-        writeDataToFile('../data/product.json',products)
+       products = products.filter((cur,idx)=> cur.id !== id)
+        writeDataToFile('./data/product.json',products)
         resolve()
     })
 }

@@ -1,4 +1,4 @@
-const Products = require("../models/productModels");
+let Products = require("../models/productModels");
 const { getPostData} = require('../utils')
 // @desc gets all products
 // @routes GET /api/product
@@ -88,7 +88,7 @@ async function deleteProduct(req,res,id){
            res.end(JSON.stringify({message:'something went wrong'}))
         }
         else{
-        //   await Products.remove(id);
+          await Products.removeProduct(id);
           res.writeHead(200,{'Content-Type':'application/json'})  
           res.end(JSON.stringify({message: `product ${id} removed`}))
         }
