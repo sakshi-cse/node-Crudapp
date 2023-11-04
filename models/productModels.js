@@ -14,7 +14,7 @@ function findById(id) {
 }
 function create(product) {
   return new Promise((resolve, reject) => {
-    const newProduct = { id: uuidv4(), ...product };
+    const newProduct = { id: uuidv4(), ...product};
     products.push(newProduct);
     writeDataToFile("./data/product.json", products);
     resolve(newProduct);

@@ -33,7 +33,6 @@ async function getProduct(req, res, id) {
 //@Route POST /api/product
 async function createProduct(req, res) {
   try {
-    
     const body = await getPostData(req)
     const { name, discription, price} = JSON.parse(body)
 

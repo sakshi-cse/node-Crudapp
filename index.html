@@ -24,19 +24,19 @@
     </nav>
     <!-- post data -->
     <section class="section1 m-5">
-        <div class="first_section_main d-flex justify-content-center ">
+        <div class="first_section_main d-flex justify-content-center">
             <div class="first_section_left col-8 ms-3 card-body">
              
                     <input type="text" id="name_id" placeholder="name" />
                     <input type="text" id="discription_id" placeholder="discription" />
-                    <input type="number" id="price_id" placeholder="price" />
+                    <input type="number" id="price_id" placeholder="price"/>
                     <button id="postdata_id">add</button>
                
                 
             </div>
             <div class="first_section_right col-4 card-body">
                     <input type="text" id="delete_id">
-                    <button onclick="delete_post()" placeholder="enter id">delete</button>
+                    <button onclick="delete_post()" placeholder="enter id" id="delete_button">delete</button>
                
             </div>
         </div>
@@ -52,8 +52,8 @@
                     <th scope="col">price</th>
                   </tr>
                 </thead>
-                <tbody id="tablebody_id">
-                 
+                <tbody id="tablebody_ids">
+                   
                 </tbody>
               </table>
         </div>
