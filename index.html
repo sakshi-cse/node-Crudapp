@@ -6,38 +6,61 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <nav class="navbar-dark  p-3 d-flex justify-content-between bg-secondary-subtle">
+    <nav class="navbar-dark  p-3 d-flex justify-content-between px-5 p-5 bg-secondary-subtle">
         <!-- getall -->
         <div class="show_all_div">
             <div class="btn  btn-primary"  id="showall_id">show all items</div>
         </div>
         <!-- get by id -->
         <div class="serach_item_div">
-            <input type="text" id="getspecific_id">
-             <button class="btn btn-success">
-                search
-                <i class="bi bi-search ms-3"></i>
-            </button>
+            <form>
+                <input type="text" id="getspecific_ids">
+                <button class="btn btn-success" id="serach_button_id">
+                   search
+                   <i class="bi bi-search ms-3"></i>
+               </button>
+            </form>
         </div>
     </nav>
+    <!-- notificatoin section -->
+    <div class="notification_div" id="notification_outerdiv">
+        <div class="notification_innerdiv" id="notification_innerdiv_id"></div>
+    </div>
+
     <!-- post data -->
     <section class="section1 m-5">
         <div class="first_section_main d-flex justify-content-center">
             <div class="first_section_left col-8 ms-3 card-body">
-             
-                    <input type="text" id="name_id" placeholder="name" />
-                    <input type="text" id="discription_id" placeholder="discription" />
-                    <input type="number" id="price_id" placeholder="price"/>
-                    <button id="postdata_id">add</button>
+             <form method="DELETE" onsubmit="" style="display: flex; gap:10px;">
+                <input type="text" class="inputs" id="name_id" placeholder="name"/>
+                <input type="text" class="inputs" id="discription_id" placeholder="discription" />
+                <input type="number" class="inputs" id="price_id" placeholder="price"/>
+                <button id="postdata_id" type="button">add</button>
+             </form>
+             <div id="name-label-id" class="text-danger"></div>
+                   
                
                 
             </div>
             <div class="first_section_right col-4 card-body">
-                    <input type="text" id="delete_id">
-                    <button onclick="delete_post()" placeholder="enter id" id="delete_button">delete</button>
-               
+                    <div id="get_specific_element_id">
+                     <table id="second-table" class="table">
+                        <thead>
+                            <tr>
+                               <th scope="col">name</th>
+                               <th scope="col">discription</th>
+                               <th scope="col">price</th>
+                               
+                               </tr>
+                        </thead>
+                        <tbody id="specific_id_tbody">
+                           
+                        </tbody>
+                     </table>
+                    </div>
             </div>
         </div>
     </section>
@@ -53,7 +76,7 @@
                   </tr>
                 </thead>
                 <tbody id="tablebody_ids">
-                   
+                  
                 </tbody>
               </table>
         </div>
