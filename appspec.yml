@@ -4,9 +4,6 @@ files:
   - source: /
     destination: /home/ubuntu/node-Crudapp
 hooks:
-  AfterInstall:
-    - location: afterinstall.sh
-      timeout: 100
   ApplicationStart:
-    - location: applicationstart.sh
+    - location: scripts/start_application.sh
       timeout: 100
