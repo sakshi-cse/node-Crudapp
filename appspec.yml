@@ -3,7 +3,9 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/node-Crudapp
+    overwrite: true
 hooks:
   ApplicationStart:
     - location: scripts/start_application.sh
-      timeout: 100
+      timeout: 300
+      runas: root
