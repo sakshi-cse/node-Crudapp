@@ -11,6 +11,5 @@ phases:
       - echo "Packages have been installed"
       - echo "Storing Build Artifact to the Location"
 artifacts:
-  type: zip
-  paths:
-    - '*'
+  files:
+    - '**/*'
