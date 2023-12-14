@@ -15,34 +15,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Configure AWS credentials
-        id: iam-role
-        continue-on-error: true
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
-          role-session-name: GitHub-Action-Role
-          aws-region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+   
 
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
-          # build_path: CodeGuruSecurity # build artifact(s) directory
+          #build_path: CodeGuruSecurity # build artifact(s) directory
           s3_bucket: codeguru-reviewer-target  # S3 Bucket with "codeguru-reviewer-*" prefix
 
-      - name: Debug Info
-        run: |
-          ls -R   # List files in the current directory and subdirectories
-          cat codeguru-results.sarif.json   # Output the contents of the SARIF file
-
-      - name: Store SARIF file
-        if: steps.iam-role.outcome == 'success'
-        uses: actions/upload-artifact@v2
-        with:
-          name: SARIF_recommendations
-          path: ./codeguru-results.sarif.json
-
       - name: Upload review result
-        uses: github/codeql-action/upload-sarif@v2
+       # if: ${{ github.event_name != 'push' }}
+        uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: codeguru-results.sarif.json
