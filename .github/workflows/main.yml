@@ -27,7 +27,7 @@ jobs:
       - name: CodeGuru Reviewer
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
-          build_path: target # build artifact(s) directory
+          build_path: codeguru-reviewer-target # build artifact(s) directory
           s3_bucket: codeguru-reviewer-target  # S3 Bucket with "codeguru-reviewer-*" prefix
 
       - name: Upload review result
