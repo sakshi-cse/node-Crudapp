@@ -20,7 +20,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: us-east-2
 
    
 
@@ -28,7 +28,7 @@ jobs:
         uses: aws-actions/codeguru-reviewer@v1.1
         with:
           #build_path: CodeGuruSecurity # build artifact(s) directory
-          s3_bucket: codeguru-reviewer-target  # S3 Bucket with "codeguru-reviewer-*" prefix
+          s3_bucket: codeguru-reviewer-18-2023  # S3 Bucket with "codeguru-reviewer-*" prefix
 
       - name: Upload review result
        # if: ${{ github.event_name != 'push' }}
